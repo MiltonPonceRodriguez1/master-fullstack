@@ -1,0 +1,23 @@
+<!-- EN CASO DE QUE NO EXISTA EL POST -->
+<div class="col-md-12" *ngIf="!post">
+    Cargando...    
+</div>
+
+<!-- EN CASO DE QUE EXISTA EL POST -->
+<div class="col-md-12 mt-3" *ngIf="post">
+    <h1>{{post.title}}</h1>
+    <p>
+        {{post.category.name}} - <a [routerLink]="['/perfil', post.user_id]">{{post.user.name + ' ' + post.user.surname}}</a>
+    </p>
+    <hr/>
+    <p [innerHtml]="post.content"></p>
+
+    <div class="text-center" *ngIf="post.image">
+        <img src="{{url + 'post/image/' + post.image}}" class="rounded mx-auto d-block w-50"/>
+    </div>
+
+    <div class="text-center" *ngIf="!post.image">
+        <img src="assets/images/default.png" class="rounded mx-auto d-block w-50"/>
+    </div>
+
+</div>

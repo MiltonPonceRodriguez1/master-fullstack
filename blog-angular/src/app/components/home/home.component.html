@@ -1,0 +1,15 @@
+<!-- EN CASO DE QUE NO EXISTAN POSTS-->
+<div class="loading" *ngIf="!posts">
+    Cargando...
+</div>
+
+<!-- EN CASO DE QUE SI EXISTAN POSTS-->
+<div class="container-fluid mt-3" *ngIf="posts">
+    <h1>{{page_title}}</h1>
+    <hr />
+
+    <!-- LISTADO DE POSTS -->
+    <post-list [posts]="posts"
+                [identity]="identity"
+                [url]="url"></post-list>
+</div>
